@@ -8,9 +8,9 @@ describe('SearchFieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchFieldComponent ]
+      declarations: [SearchFieldComponent],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SearchFieldComponent);
     component = fixture.componentInstance;
