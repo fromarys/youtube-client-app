@@ -1,0 +1,11 @@
+@import './styles/variables.scss';
+
+.wrapper {
+  background-color: var(--bg-color);
+}
+
+.container {
+  width: $laptop-width-L;
+  margin: 0 auto;
+  padding: 1.5rem 2.8rem;
+}
