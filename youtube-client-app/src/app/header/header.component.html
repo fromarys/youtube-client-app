@@ -1,11 +1,22 @@
 <header class="header">
-  <div class="header__wrapper">
+  <div class="bar">
     <a href="/"><img src="./../../assets/icons/logo.svg" alt="logo" class="header__logo"></a>
     <app-search-field></app-search-field>
     <button mat-button aria-label="filter" class="header__button"></button>
     <div class="user">
       <span class="user__name">Your Name</span>
       <button class="user__image"></button>
+    </div>
+  </div>
+  <div class="sorting">
+    <div class="sorting__types">
+      <div class="sorting__title">Sorting by:</div>
+      <div class="sorting__date">date</div>
+      <div class="sorting__views">count of views</div>
+    </div>
+    <div class="sorting__filter">
+      <div class="sorting__word">by word or sentence</div>
+      <input type="text" class="sorting__input">
     </div>
   </div>
 </header>

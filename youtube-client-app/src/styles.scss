@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -8,4 +17,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --main-text-color: #929292;
   --bg-color: #E5E5E5;
   --search-bg-color: #EFEFEF;
+  --search-text-color: #333333;
 }

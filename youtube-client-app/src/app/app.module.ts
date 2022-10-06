@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { SearchFilterComponent } from './search/search-filter/search-filter.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
     SearchItemComponent,
     SearchResultsComponent,
     SearchFieldComponent,
+    SearchFilterComponent,
   ],
   imports: [
     BrowserModule,
