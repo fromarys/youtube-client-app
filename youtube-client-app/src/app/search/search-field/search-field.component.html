@@ -1,5 +1,5 @@
 
-<div class="search"> 
-  <input matInput class="search__input" placeholder="Enter search request" type="text">
-  <button mat-button aria-label="search" class="search__button">search</button>
+<div class="search">
+  <input matInput class="search__input" placeholder="Enter search request" type="text" #searchField>
+  <button mat-button aria-label="search" class="search__button" (click)="onSearchButtonClick(searchField)">search</button>
 </div>

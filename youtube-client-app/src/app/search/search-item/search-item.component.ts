@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Item } from './models';
 
 @Component({
   selector: 'app-search-item',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent implements OnInit {
-  constructor() { }
+  @Input()
+  public item: Item | undefined;
+  public defaultUrl: string | undefined;
+  public mediumUrl: string | undefined;
+  public highUrl: string | undefined;
+  public standardUrl: string | undefined;
+  public maxresUrl: string | undefined;
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.mediumUrl = this.item?.snippet.thumbnails.medium.url;
   }
 }

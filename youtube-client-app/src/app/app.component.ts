@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'youtube-client-app';
+  public title = 'youtube-client-app';
+
+  public query: string = '';
+
+  setQuery(query: Event) {
+    // this.query = query;
+    console.log(query);
+  }
 }

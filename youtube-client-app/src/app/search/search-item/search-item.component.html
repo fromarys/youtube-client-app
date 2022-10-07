@@ -1,1 +1,23 @@
-<p>search-item works!</p>
+<div class="item">
+  <img [src]="mediumUrl" alt="" class="item__image">
+  <div class="item__statistics">
+    <div class="item__views">
+      <mat-icon>remove_red_eye</mat-icon>
+      <span>{{item?.statistics?.viewCount}}</span>
+    </div>
+    <div class="item__likes">
+      <mat-icon>thumb_up</mat-icon>
+      <span>{{item?.statistics?.likeCount}}</span>
+    </div>
+    <div class="item__dislikes">
+      <mat-icon>thumb_down</mat-icon>
+      <span>{{item?.statistics?.dislikeCount}}</span>
+    </div>
+    <div class="item__favorites">
+      <mat-icon>collections_bookmark</mat-icon>
+      <span>{{item?.statistics?.favoriteCount}}</span>
+    </div>
+  </div>
+  <div class="item__title">{{item?.snippet?.title}}</div>
+  <button class="item__button">more...</button>
+</div>

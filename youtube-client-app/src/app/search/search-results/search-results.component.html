@@ -1,3 +1,5 @@
-<main class="results"> 
-  <div>asdadss</div>
+<main class="results">
+  <ng-container *ngIf="$response | async as response">
+    <app-search-item *ngFor="let item of response.items" [item]="item"></app-search-item>
+  </ng-container>
 </main>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, EventEmitter, OnInit, Output,
+} from '@angular/core';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-search-field',
@@ -6,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-field.component.scss'],
 })
 export class SearchFieldComponent implements OnInit {
-  constructor() { }
+  @Output() searchClick = new EventEmitter<string>();
+
+  constructor(private readonly searchService: SearchService) { }
 
   ngOnInit(): void {
+  }
+
+  onSearchButtonClick(input: HTMLInputElement) {
+    // return this.searchClick.emit(input.value);
+    this.searchService.sendSearchQuery(input.value);
   }
 }
