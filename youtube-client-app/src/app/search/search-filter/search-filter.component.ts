@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
+import { SortingService } from 'src/app/services/sorting.service';
 
 @Component({
   selector: 'app-search-filter',
@@ -9,12 +10,12 @@ import { Sort } from '@angular/material/sort';
 export class SearchFilterComponent implements OnInit {
   public sortingDateId: string = '';
   public sortingViewsId: string = '';
-  constructor() {}
+  constructor(private sortingService: SortingService) {}
 
   ngOnInit(): void {
   }
 
-  getSortingStatus(event: Sort) {
-    console.log(event);
+  getSortingStatus(status: Sort) {
+    this.sortingService.changeSortingStatus(status);
   }
 }

@@ -8,9 +8,7 @@ import { ISearchResponse } from '../search/search-results/models';
 })
 export class SearchService {
   private url: string = '/assets/response/response.json';
-
   public $response = new Subject<ISearchResponse>();
-
   public $searchQuery = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }
