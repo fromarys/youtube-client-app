@@ -15,6 +15,7 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
 import { SearchFieldComponent } from './search/search-field/search-field.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchFilterComponent } from './search/search-filter/search-filter.component';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SearchFilterComponent } from './search/search-filter/search-filter.comp
     SearchResultsComponent,
     SearchFieldComponent,
     SearchFilterComponent,
+    SortingPipe,
   ],
   imports: [
     BrowserModule,

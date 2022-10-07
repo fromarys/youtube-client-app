@@ -13,7 +13,7 @@ import { ISearchResponse } from './models';
 export class SearchResultsComponent implements OnInit, OnDestroy {
   // TODO remove initializing after layout is done
   public $response: Observable<ISearchResponse> | undefined = this.searchService.getSearchResult();
-  // public $sortingStatus: Sort | undefined;
+  public $sortingStatus: Sort | undefined;
   constructor(private searchService: SearchService, private sortingService: SortingService) {
   }
 
@@ -21,9 +21,9 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.searchService.$searchQuery.subscribe(() => {
       this.$response = this.searchService.getSearchResult();
     });
-    // this.sortingService.$sorting.subscribe((status) => {
-    //   this.$sortingStatus = status;
-    // });
+    this.sortingService.$sorting.subscribe((status) => {
+      this.$sortingStatus = status;
+    });
   }
 
   ngOnDestroy(): void {
