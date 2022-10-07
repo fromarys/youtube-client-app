@@ -7,11 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title = 'youtube-client-app';
-
   public query: string = '';
-
-  setQuery(query: Event) {
-    // this.query = query;
-    console.log(query);
+  constructor() {
   }
 }
