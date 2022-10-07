@@ -7,17 +7,10 @@ import { Item } from './models';
   styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent implements OnInit {
-  @Input()
-  public item: Item | undefined;
-  public defaultUrl: string | undefined;
-  public mediumUrl: string | undefined;
-  public highUrl: string | undefined;
-  public standardUrl: string | undefined;
-  public maxresUrl: string | undefined;
+  @Input() public item: Item | undefined;
   constructor() {
   }
 
   ngOnInit(): void {
-    this.mediumUrl = this.item?.snippet.thumbnails.medium.url;
   }
 }

@@ -4,4 +4,9 @@
 .results {
   background-color: var(--white-color);
   margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.6rem;
+  width: 100%;
+  justify-content: center;
 }

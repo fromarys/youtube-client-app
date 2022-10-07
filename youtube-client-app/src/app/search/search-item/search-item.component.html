@@ -1,5 +1,5 @@
 <div class="item">
-  <img [src]="mediumUrl" alt="" class="item__image">
+  <img [src]="item?.snippet?.thumbnails?.medium?.url" alt="" class="item__image">
   <div class="item__statistics">
     <div class="item__views">
       <mat-icon>remove_red_eye</mat-icon>
@@ -19,5 +19,5 @@
     </div>
   </div>
   <div class="item__title">{{item?.snippet?.title}}</div>
-  <button class="item__button">more...</button>
+  <button mat-button class="item__button">more...</button>
 </div>
