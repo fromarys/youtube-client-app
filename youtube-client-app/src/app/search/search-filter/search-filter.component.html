@@ -10,6 +10,6 @@
   </div>
   <div class="sorting__filter">
     <div class="sorting__word">by word or sentence</div>
-    <input type="text" class="sorting__input">
+    <input type="text" class="sorting__input"  [(ngModel)]="filter" (ngModelChange)="filterItems()">
   </div>
 </div>

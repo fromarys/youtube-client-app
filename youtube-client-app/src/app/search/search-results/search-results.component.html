@@ -1,5 +1,5 @@
 <main class="results">
   <ng-container *ngIf="$response | async as response">
-    <app-search-item *ngFor="let item of response.items | sorting: $sortingStatus" [item]="item"></app-search-item>
+    <app-search-item *ngFor="let item of response.items | sorting: $sortingStatus | filtering : $filter" [item]="item"></app-search-item>
   </ng-container>
 </main>

@@ -4,6 +4,7 @@ import { SearchService } from 'src/app/services/search.service';
 import { SortingService } from 'src/app/services/sorting.service';
 import { Sort } from '@angular/material/sort';
 import { ISearchResponse } from './models';
+import { FilteringService } from 'src/app/services/filtering.service';
 
 @Component({
   selector: 'app-search-results',
@@ -14,7 +15,8 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   // TODO remove initializing after layout is done
   public $response: Observable<ISearchResponse> | undefined = this.searchService.getSearchResult();
   public $sortingStatus: Sort | undefined;
-  constructor(private searchService: SearchService, private sortingService: SortingService) {
+  public $filter: string | undefined;
+  constructor(private searchService: SearchService, private sortingService: SortingService, private filteringService: FilteringService) {
   }
 
   ngOnInit(): void {
@@ -24,10 +26,14 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     this.sortingService.$sorting.subscribe((status) => {
       this.$sortingStatus = status;
     });
+    this.filteringService.$filtering.subscribe((filter) => {
+      this.$filter = filter;
+    })
   }
 
   ngOnDestroy(): void {
     this.searchService.$searchQuery.unsubscribe();
     this.sortingService.$sorting.unsubscribe();
+    this.filteringService.$filtering.unsubscribe();
   }
 }
