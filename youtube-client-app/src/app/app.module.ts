@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SearchFilterComponent } from './search/search-filter/search-filter.component';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { FilteringPipe } from './pipes/filtering.pipe';
+import { BorderColorDirective } from './directives/border-color.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FilteringPipe } from './pipes/filtering.pipe';
     SearchFilterComponent,
     SortingPipe,
     FilteringPipe,
+    BorderColorDirective,
   ],
   imports: [
     BrowserModule,
