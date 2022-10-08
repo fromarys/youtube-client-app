@@ -3,7 +3,7 @@ import { Sort } from '@angular/material/sort';
 import { Item } from '../search/search-item/models';
 
 @Pipe({
-  name: 'sorting'
+  name: 'sorting',
 })
 export class SortingPipe implements PipeTransform {
   private date: string = 'date-sorting';

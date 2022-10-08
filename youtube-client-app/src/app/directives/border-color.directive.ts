@@ -1,13 +1,15 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import {
+  Directive, ElementRef, Input, OnInit,
+} from '@angular/core';
 
 @Directive({
-  selector: '[appBorderColor]'
+  selector: '[appBorderColor]',
 })
 export class BorderColorDirective implements OnInit {
-  @Input('date') date: string | undefined;
-  constructor(private element: ElementRef) { 
+  @Input() date: string | undefined;
+  constructor(private element: ElementRef) {
   }
-  
+
   ngOnInit(): void {
     if (this.date) {
       this.element.nativeElement.style.borderBottom = `5px solid ${this.getColor()}`;

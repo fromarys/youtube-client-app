@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { SearchService } from 'src/app/services/search.service';
 import { SortingService } from 'src/app/services/sorting.service';
 import { Sort } from '@angular/material/sort';
-import { ISearchResponse } from './models';
 import { FilteringService } from 'src/app/services/filtering.service';
+import { ISearchResponse } from './models';
 
 @Component({
   selector: 'app-search-results',
@@ -15,7 +15,11 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   public $response: Observable<ISearchResponse> | undefined;
   public $sortingStatus: Sort | undefined;
   public $filter: string | undefined;
-  constructor(private searchService: SearchService, private sortingService: SortingService, private filteringService: FilteringService) {
+  constructor(
+    private searchService: SearchService,
+    private sortingService: SortingService,
+    private filteringService: FilteringService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -27,7 +31,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
     });
     this.filteringService.$filtering.subscribe((filter) => {
       this.$filter = filter;
-    })
+    });
   }
 
   ngOnDestroy(): void {
