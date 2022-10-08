@@ -9,8 +9,6 @@ import { SortingService } from 'src/app/services/sorting.service';
   styleUrls: ['./search-filter.component.scss'],
 })
 export class SearchFilterComponent implements OnInit {
-  public sortingDateId: string = '';
-  public sortingViewsId: string = '';
   public filter: string = '';
   constructor(private sortingService: SortingService, public filteringService: FilteringService) {}
 

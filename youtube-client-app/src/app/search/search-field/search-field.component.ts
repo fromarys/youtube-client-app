@@ -17,7 +17,6 @@ export class SearchFieldComponent implements OnInit {
   }
 
   onSearchButtonClick(input: HTMLInputElement) {
-    // return this.searchClick.emit(input.value);
     this.searchService.sendSearchQuery(input.value);
   }
 }

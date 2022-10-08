@@ -2,11 +2,13 @@
   <div class="bar">
     <a href="/" class="header__link"><img src="./../../assets/icons/logo.svg" alt="logo" class="header__logo"></a>
     <app-search-field></app-search-field>
-    <button mat-button aria-label="filter" class="header__button"></button>
+    <button mat-button aria-label="filter" class="header__button" (click)="switchFilterState()"></button>
     <div class="user">
       <span class="user__name">Your Name</span>
       <button class="user__image"></button>
     </div>
   </div>
-  <app-search-filter></app-search-filter>
+  <ng-container *ngIf="filterIsShown">
+    <app-search-filter></app-search-filter>
+  </ng-container>
 </header>

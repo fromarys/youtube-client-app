@@ -12,8 +12,7 @@ import { FilteringService } from 'src/app/services/filtering.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit, OnDestroy {
-  // TODO remove initializing after layout is done
-  public $response: Observable<ISearchResponse> | undefined = this.searchService.getSearchResult();
+  public $response: Observable<ISearchResponse> | undefined;
   public $sortingStatus: Sort | undefined;
   public $filter: string | undefined;
   constructor(private searchService: SearchService, private sortingService: SortingService, private filteringService: FilteringService) {
