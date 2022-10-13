@@ -1,0 +1,15 @@
+<div class="sorting">
+  <div class="sorting__types">
+    <div class="sorting__title">Sorting by:</div>
+    <table matSort (matSortChange)="getSortingStatus($event)">
+      <tr>
+        <th mat-sort-header="date-sorting" class="sorting__date">date</th>
+        <th mat-sort-header="calories" class="sorting__views">count of views</th>
+      </tr>
+    </table>
+  </div>
+  <div class="sorting__filter">
+    <div class="sorting__word">by word or sentence</div>
+    <input type="text" class="sorting__input" [(ngModel)]="filter" (ngModelChange)="filterItems()">
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="container">
+    <header class="header">
+      <div class="bar">
+        <a href="/" class="header__link"><img src="./../../assets/icons/logo.svg" alt="logo" class="header__logo"></a>
+        <app-search-field></app-search-field>
+        <button mat-button aria-label="filter" class="header__button" (click)="switchFilterState()"></button>
+        <div class="user">
+          <span class="user__name">Your Name</span>
+          <button class="user__image"></button>
+        </div>
+      </div>
+      <ng-container *ngIf="filterIsShown">
+        <app-search-filter></app-search-filter>
+      </ng-container>
+    </header>
+  </div>
+</div>

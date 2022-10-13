@@ -1,0 +1,12 @@
+@import './../../../styles/mixins.scss';
+@import './../../../styles/variables.scss';
+
+.not-found {
+  display: flex;
+  margin: 0 auto;
+  height: 100vh;
+  width: 25rem;
+  column-gap: 1.8rem;
+  align-items: center;
+  @include font($bold, $font-24, var(--error-font-color));
+}

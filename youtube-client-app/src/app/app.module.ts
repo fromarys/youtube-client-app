@@ -1,47 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSortModule } from '@angular/material/sort';
-import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { SearchItemComponent } from './search/search-item/search-item.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
-import { SearchFieldComponent } from './search/search-field/search-field.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SearchFilterComponent } from './search/search-filter/search-filter.component';
-import { SortingPipe } from './pipes/sorting.pipe';
-import { FilteringPipe } from './pipes/filtering.pipe';
-import { BorderColorDirective } from './directives/border-color.directive';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SearchItemComponent,
-    SearchResultsComponent,
-    SearchFieldComponent,
-    SearchFilterComponent,
-    SortingPipe,
-    FilteringPipe,
-    BorderColorDirective,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatSortModule,
-    HttpClientModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

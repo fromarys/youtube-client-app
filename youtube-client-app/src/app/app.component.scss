@@ -1,12 +1,1 @@
 @import './styles/variables.scss';
-
-.wrapper {
-  background-color: var(--bg-color);
-}
-
-.container {
-  max-width: $laptop-width-L;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1.5rem 2.8rem;
-}
