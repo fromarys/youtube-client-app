@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { FilteringService } from 'src/app/core/services/filtering.service';
-import { SortingService } from 'src/app/core/services/sorting.service';
+import { FilteringService } from 'src/app/core/services/search/filtering.service';
+import { SortingService } from 'src/app/core/services/search/sorting.service';
 
 @Component({
   selector: 'app-search-filter',
