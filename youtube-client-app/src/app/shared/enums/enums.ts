@@ -1,5 +1,5 @@
 export enum LocalStorage {
-  token = 'authToken',
+  auth = 'authorized',
 }
 
 export enum Login {

@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private router: Router) {}
 
   isAuthorized(): boolean {
-    return !!localStorage.getItem(LocalStorage.token);
+    return !!localStorage.getItem(LocalStorage.auth);
   }
 
   public logIn(user: IUserCredentials): void {
@@ -23,13 +23,13 @@ export class AuthService {
       token,
     };
     this.setUserState(this.setAuthdata(true, user.login));
-    localStorage.setItem(LocalStorage.token, JSON.stringify(userData));
+    localStorage.setItem(LocalStorage.auth, JSON.stringify(userData));
     this.router.navigate(['']);
   }
 
   public logOut(): void {
     this.setUserState(this.setAuthdata(false));
-    localStorage.removeItem(LocalStorage.token);
+    localStorage.removeItem(LocalStorage.auth);
     this.router.navigate(['/auth']);
   }
 
