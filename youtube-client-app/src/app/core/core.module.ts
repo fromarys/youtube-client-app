@@ -5,7 +5,6 @@ import { SearchFieldComponent } from './components/search/search-field/search-fi
 import { SearchFilterComponent } from './components/search/search-filter/search-filter.component';
 import { SharedModule } from '../shared/shared.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,6 @@ import { MainComponent } from './pages/main/main.component';
     SearchFieldComponent,
     SearchFilterComponent,
     NotFoundComponent,
-    MainComponent,
   ],
   imports: [
     CommonModule,

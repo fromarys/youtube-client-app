@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SearchService } from 'src/app/core/services/search/search.service';
+import { SearchService } from 'src/app/youtube/services/youtube.service';
 import { SortingService } from 'src/app/core/services/search/sorting.service';
 import { FilteringService } from 'src/app/core/services/search/filtering.service';
 
 @Component({
-  selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss'],
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss'],
 })
-export class SearchResultsComponent implements OnInit, OnDestroy {
+export class SearchComponent implements OnInit, OnDestroy {
   public $response = this.searchService.getSearchResult();
   public $sortingStatus = this.sortingService.$sorting;
   public $filter = this.filteringService.$filtering;

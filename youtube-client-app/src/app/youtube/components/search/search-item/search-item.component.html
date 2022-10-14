@@ -19,5 +19,5 @@
     </div>
   </div>
   <div class="item__title">{{item?.snippet?.title}}</div>
-  <button mat-button class="item__button">more...</button>
+  <a [routerLink]="['/item', item?.id]"><button mat-button class="item__button">more...</button></a>
 </div>

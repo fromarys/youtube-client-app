@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, OnInit, Output,
 } from '@angular/core';
-import { SearchService } from 'src/app/core/services/search/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-field',
@@ -11,12 +11,12 @@ import { SearchService } from 'src/app/core/services/search/search.service';
 export class SearchFieldComponent implements OnInit {
   @Output() searchClick = new EventEmitter<string>();
 
-  constructor(private readonly searchService: SearchService) { }
+  constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSearchButtonClick(input: HTMLInputElement) {
-    this.searchService.sendSearchQuery(input.value);
+  onSearchButtonClick() {
+    this.router.navigate(['/search']);
   }
 }

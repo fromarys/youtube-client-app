@@ -8,8 +8,7 @@ import { Item } from 'src/app/youtube/models/search-item.model';
 })
 export class SearchItemComponent implements OnInit {
   @Input() public item: Item | undefined;
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }
