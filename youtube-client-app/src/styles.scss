@@ -25,6 +25,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --item-title-color: #4F4F4F;
   --item-bg-color: #E5E5E5;
   --error-font-color: #828282;
+  --login-form-bg-color: #F2F2F2;
+  --login-bg-color: #E0E0E0
 }
 
 .wrapper {
@@ -36,4 +38,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
   margin: 0 auto;
   padding: 1.5rem 2.8rem;
+  position: relative;
 }
