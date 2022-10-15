@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject, take } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ISearchResponse } from 'src/app/youtube/models/search-response.model';
 
 @Injectable({
