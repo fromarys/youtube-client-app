@@ -6,7 +6,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { IUserCredentials } from 'src/app/core/models/user.model';
-import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LoginService } from 'src/app/core/services/login/login.service';
 import { Login } from 'src/app/shared/enums/enums';
 
 @Component({
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   });
-  constructor(private authService: AuthService, private form: FormBuilder) { }
+  constructor(private loginService: LoginService, private form: FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   logIn() {
     this.userCredentials.login = this.getLogin(this.user.value.email);
     this.userCredentials.password = this.user.value.password ?? '';
-    this.authService.logIn(this.userCredentials);
+    this.loginService.logIn(this.userCredentials);
   }
 
   private getLogin(email: string): string {

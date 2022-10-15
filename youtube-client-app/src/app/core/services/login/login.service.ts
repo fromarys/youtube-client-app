@@ -8,7 +8,7 @@ import { IUserCredentials, IAuthData, IUserData } from '../../models/user.model'
   providedIn: 'root',
 })
 
-export class AuthService {
+export class LoginService {
   public $authData = new Subject<IAuthData>();
   constructor(private router: Router) {}
 
