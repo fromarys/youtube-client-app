@@ -8,5 +8,5 @@
   width: 25rem;
   column-gap: 1.8rem;
   align-items: center;
-  @include font($bold, $font-24, var(--error-font-color));
+  @include font($bold, $font-24, var(--grey-font-color));
 }

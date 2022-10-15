@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+body, h2, h3, h4 {
   margin: 0;
   padding: 0;
 }
@@ -24,7 +24,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --search-text-color: #333333;
   --item-title-color: #4F4F4F;
   --item-bg-color: #E5E5E5;
-  --error-font-color: #828282;
+  --grey-font-color: #828282;
   --login-form-bg-color: #F2F2F2;
   --login-bg-color: #E0E0E0
 }

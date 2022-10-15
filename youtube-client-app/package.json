@@ -46,6 +46,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "linkify-html": "^4.0.2",
+    "linkifyjs": "^4.0.2",
     "typescript": "~4.7.2"
   }
 }

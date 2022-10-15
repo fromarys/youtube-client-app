@@ -7,6 +7,7 @@ import { FilteringPipe } from './pipes/filtering.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { BorderColorDirective } from './directives/border-color.directive';
 import { DetailsComponent } from './pages/details/details.component';
+import { LinkifyPipe } from './pipes/linkify.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DetailsComponent } from './pages/details/details.component';
     FilteringPipe,
     BorderColorDirective,
     DetailsComponent,
+    LinkifyPipe,
   ],
   imports: [
     SharedModule,
