@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SearchService } from 'src/app/youtube/services/youtube.service';
+import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { SortingService } from 'src/app/core/services/search/sorting.service';
 import { FilteringService } from 'src/app/core/services/search/filtering.service';
 
@@ -10,12 +10,12 @@ import { FilteringService } from 'src/app/core/services/search/filtering.service
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  public $response = this.searchService.getSearchResult();
+  public $response = this.youtubeService.getSearchResult();
   public $sortingStatus = this.sortingService.$sorting;
   public $filter = this.filteringService.$filtering;
   public $subject = new Subject();
   constructor(
-    private searchService: SearchService,
+    private youtubeService: YoutubeService,
     private sortingService: SortingService,
     private filteringService: FilteringService,
   ) {

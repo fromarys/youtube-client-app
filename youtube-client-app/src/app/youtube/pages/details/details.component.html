@@ -1,1 +1,37 @@
-<p>details works!</p>
+<div class="container">
+  <div class="card">
+    <div class="card__image">
+      <img [src]="($item | async)?.snippet?.thumbnails?.medium?.url" alt="video">
+    </div>
+    <div class="card__info">
+      <div class="card__header">
+        <h2 class="card__title">{{($item | async)?.snippet?.title}}</h2>
+        <h4 class="card__date">{{($item | async)?.snippet?.publishedAt | date : 'fullDate'}}</h4>
+      </div>
+      <div class="card__description">
+        <h3 class="card__description-title">Description:</h3>
+        <p class="card__description-text">{{($item | async)?.snippet?.description}}</p>
+      </div>
+      <div class="card__statistics">
+        <div class="item__statistics">
+          <div class="item__views">
+            <mat-icon>remove_red_eye</mat-icon>
+            <span>{{($item | async)?.statistics?.viewCount}}</span>
+          </div>
+          <div class="item__likes">
+            <mat-icon>thumb_up</mat-icon>
+            <span>{{($item | async)?.statistics?.likeCount}}</span>
+          </div>
+          <div class="item__dislikes">
+            <mat-icon>thumb_down</mat-icon>
+            <span>{{($item | async)?.statistics?.dislikeCount}}</span>
+          </div>
+          <div class="item__favorites">
+            <mat-icon>collections_bookmark</mat-icon>
+            <span>{{($item | async)?.statistics?.favoriteCount}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -64,10 +64,16 @@
     max-width: 10rem;
     text-align: center;
     border-radius: 0.5rem;
+    cursor: pointer;
+    @include font($normal, $font-20, var(--white-color));
+
+    &:hover {
+      opacity: 0.8;
+    }
+
     li {
       padding: 1rem
     }
-    @include font($normal, $font-20, var(--white-color));
   }
 }
 

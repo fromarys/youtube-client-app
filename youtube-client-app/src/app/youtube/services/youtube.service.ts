@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, take } from 'rxjs';
 import { ISearchResponse } from 'src/app/youtube/models/search-response.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SearchService {
+export class YoutubeService {
   private url: string = '/assets/response/response.json';
-  public $response = new Subject<ISearchResponse>();
   public $searchQuery = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }

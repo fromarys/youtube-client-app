@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LocalStorage } from 'src/app/shared/enums/enums';
 import { AuthService } from '../../services/auth/auth.service';
-import { IUserData } from './../../models/user.model';
+import { IUserData } from '../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
     this.authService.$authData.subscribe((user) => {
       this.userName = user.login;
-    })
+    });
   }
 
   public switchFilterState(): void {
