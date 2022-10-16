@@ -17,6 +17,6 @@ export class SearchFieldComponent implements OnInit {
   }
 
   onSearchButtonClick() {
-    this.router.navigate(['/search']);
+    this.router.navigate(['']);
   }
 }

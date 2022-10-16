@@ -7,7 +7,7 @@ import { ISearchResponse } from 'src/app/youtube/models/search-response.model';
   providedIn: 'root',
 })
 export class YoutubeService {
-  private url: string = '/assets/response/response.json';
+  private url: string = 'assets/response/response.json';
   public $searchQuery = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }
