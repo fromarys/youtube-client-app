@@ -17,6 +17,7 @@ export class YoutubeService {
   }
 
   sendSearchQuery(query: string) {
+    console.log(query);
     this.$searchQuery.next(query);
   }
 }

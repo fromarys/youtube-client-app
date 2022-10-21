@@ -1,5 +1,3 @@
-
 <div class="search">
-  <input matInput class="search__input" placeholder="Enter search request" type="text" #searchField>
-  <button mat-button aria-label="search" class="search__button" (click)="onSearchButtonClick()">search</button>
+  <input matInput class="search__input" placeholder="Enter search request" type="text" #searchField [(ngModel)]="searchValue" (ngModelChange)="$searchQuery.next($event)">
 </div>

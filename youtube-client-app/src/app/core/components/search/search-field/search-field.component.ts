@@ -1,7 +1,12 @@
 import {
-  Component, EventEmitter, OnInit, Output,
+  Component, OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  catchError,
+  debounceTime, distinctUntilChanged, filter, of, Subject,
+} from 'rxjs';
+import { DEBOUNCE_DELAY, MIN_SEARCH_LENGTH } from 'src/app/shared/constants/constants';
 
 @Component({
   selector: 'app-search-field',
@@ -9,14 +14,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-field.component.scss'],
 })
 export class SearchFieldComponent implements OnInit {
-  @Output() searchClick = new EventEmitter<string>();
+  public searchValue: string = '';
+  public $searchQuery = new Subject<string>();
 
   constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  onSearchButtonClick() {
-    this.router.navigate(['']);
+    this.$searchQuery.pipe(
+      filter((query) => query.length >= MIN_SEARCH_LENGTH),
+      debounceTime(DEBOUNCE_DELAY),
+      distinctUntilChanged(),
+      catchError((error) => of(error)),
+    ).subscribe((query) => {
+      this.router.navigate(['/search', query]);
+    });
   }
 }
