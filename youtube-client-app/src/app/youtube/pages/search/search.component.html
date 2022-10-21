@@ -1,6 +1,9 @@
 <div class="container">
   <main class="results">
-    <ng-container *ngIf="$response | async as response">
+    <!-- <ng-container *ngIf="$response | async as response">
+      <app-search-item *ngFor="let item of response.items | sorting: ($sortingStatus | async) | filtering : ($filter | async)" [item]="item"></app-search-item>
+    </ng-container> -->
+    <ng-container *ngIf="response">
       <app-search-item *ngFor="let item of response.items | sorting: ($sortingStatus | async) | filtering : ($filter | async)" [item]="item"></app-search-item>
     </ng-container>
   </main>

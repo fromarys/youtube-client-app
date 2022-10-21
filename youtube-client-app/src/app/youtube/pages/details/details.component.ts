@@ -17,10 +17,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute, private youtubeService: YoutubeService) { }
 
   ngOnInit(): void {
-    this.$item = this.youtubeService.getSearchResult().pipe(
-      mergeMap((res) => res.items),
-      find((item) => item.id === this.id),
-    );
+    // this.$item = this.youtubeService.getSearchResult().pipe(
+    //   mergeMap((res) => res.items),
+    //   find((item) => item.id === this.id),
+    // );
   }
 
   ngOnDestroy(): void {

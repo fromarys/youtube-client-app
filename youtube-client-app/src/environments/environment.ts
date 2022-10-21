@@ -4,6 +4,14 @@
 
 export const environment = {
   production: false,
+  API_URL: 'https://www.googleapis.com/youtube/v3',
+  API_KEY: 'AIzaSyBY00HnPVOj1zTw9f-vsGdy4l59lhIewIA',
+  SEARCH_URL: 'search',
+  SEARCH_PART: 'snippet',
+  SEARCH_TYPE: 'video',
+  MAX_RESULTS: '15',
+  VIDEOS_URL: 'videos',
+  VIDEOS_PART: 'snippet, statistics',
 };
 
 /*

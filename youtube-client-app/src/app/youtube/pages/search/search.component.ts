@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { pluck, Subject } from 'rxjs';
+import { pluck, Subject, switchMap } from 'rxjs';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 import { SortingService } from 'src/app/core/services/search/sorting.service';
 import { FilteringService } from 'src/app/core/services/search/filtering.service';
 import { ActivatedRoute } from '@angular/router';
 import { SearchParam } from 'src/app/shared/enums/enums';
+import { ISearchResponse } from '../../models/search-response.model';
 
 @Component({
   selector: 'app-search',
@@ -12,7 +13,8 @@ import { SearchParam } from 'src/app/shared/enums/enums';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  public $response = this.youtubeService.getSearchResult();
+  // public $response: Observable<ISearchResponse> | undefined;
+  public response: ISearchResponse | undefined;
   public $sortingStatus = this.sortingService.$sorting;
   public $filter = this.filteringService.$filtering;
   public $subject = new Subject();
@@ -25,9 +27,12 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.pipe(pluck(SearchParam.query))
-      .subscribe((query) => {
-        this.youtubeService.sendSearchQuery(query);
+    this.activatedRoute.params.pipe(
+      pluck(SearchParam.query),
+      switchMap((query) => this.youtubeService.getSearchResult(query)),
+    )
+      .subscribe((response) => {
+        this.response = response;
       });
   }
 

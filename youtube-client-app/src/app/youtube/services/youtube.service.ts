@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { ISearchResponse } from 'src/app/youtube/models/search-response.model';
+import { environment } from 'src/environments/environment';
+import { Params } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,12 +14,18 @@ export class YoutubeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSearchResult(): Observable<ISearchResponse> {
-    return this.httpClient.get<ISearchResponse>(this.url);
+  getSearchResult(query: string): Observable<ISearchResponse> {
+    console.log(query);
+    // return this.httpClient.get<ISearchResponse>(this.url);
+    return this.sendSearchRequest(query);
   }
 
-  sendSearchQuery(query: string) {
-    console.log(query);
-    this.$searchQuery.next(query);
+  sendSearchRequest(query: string) {
+    const params: Params = new HttpParams()
+      .set('type', environment.SEARCH_TYPE)
+      .set('part', environment.SEARCH_PART)
+      .set('maxResults', environment.MAX_RESULTS)
+      .set('q', query);
+    return this.httpClient.get<ISearchResponse>(`${environment.API_URL}/${environment.SEARCH_URL}`, { params });
   }
 }
