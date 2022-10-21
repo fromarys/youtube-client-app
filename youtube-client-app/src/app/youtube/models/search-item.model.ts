@@ -40,6 +40,11 @@ export interface IStatistics {
   commentCount: string;
 }
 
+export interface IId {
+  kind: string,
+  videoId: string,
+}
+
 export interface Item {
   kind: string;
   etag: string;

@@ -13,7 +13,6 @@ import { ISearchResponse } from '../../models/search-response.model';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  // public $response: Observable<ISearchResponse> | undefined;
   public response: ISearchResponse | undefined;
   public $sortingStatus = this.sortingService.$sorting;
   public $filter = this.filteringService.$filtering;

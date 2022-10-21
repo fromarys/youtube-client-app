@@ -9,14 +9,11 @@ import { Params } from '@angular/router';
   providedIn: 'root',
 })
 export class YoutubeService {
-  private url: string = 'assets/response/response.json';
   public $searchQuery = new Subject<string>();
 
   constructor(private httpClient: HttpClient) { }
 
   getSearchResult(query: string): Observable<ISearchResponse> {
-    console.log(query);
-    // return this.httpClient.get<ISearchResponse>(this.url);
     return this.sendSearchRequest(query);
   }
 
@@ -27,5 +24,12 @@ export class YoutubeService {
       .set('maxResults', environment.MAX_RESULTS)
       .set('q', query);
     return this.httpClient.get<ISearchResponse>(`${environment.API_URL}/${environment.SEARCH_URL}`, { params });
+  }
+
+  sendVideosRequest(id: string): Observable<ISearchResponse> {
+    const params: Params = new HttpParams()
+      .set('id', id)
+      .set('part', environment.VIDEOS_PART);
+    return this.httpClient.get<ISearchResponse>(`${environment.API_URL}/${environment.VIDEOS_URL}`, { params });
   }
 }
