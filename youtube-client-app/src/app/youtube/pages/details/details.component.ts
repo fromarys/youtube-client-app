@@ -19,10 +19,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.$item = this.youtubeService.sendVideosRequest(this.id || '').pipe(
       mergeMap((res) => res.items),
-      find((item) => {
-        console.log(item.id);
-        return item.id === this.id;
-      }),
+      find((item) => item.id === this.id),
     );
   }
 

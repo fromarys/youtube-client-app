@@ -52,3 +52,11 @@ export interface Item {
   snippet: Snippet;
   statistics: IStatistics;
 }
+
+export interface IItem {
+  kind: string;
+  etag: string;
+  id: IId;
+  snippet: Snippet;
+  statistics: IStatistics;
+}

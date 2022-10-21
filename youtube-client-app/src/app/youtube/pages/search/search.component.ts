@@ -6,6 +6,7 @@ import { FilteringService } from 'src/app/core/services/search/filtering.service
 import { ActivatedRoute } from '@angular/router';
 import { SearchParam } from 'src/app/shared/enums/enums';
 import { ISearchResponse } from '../../models/search-response.model';
+import { Item } from '../../models/search-item.model';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +14,7 @@ import { ISearchResponse } from '../../models/search-response.model';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  public response: ISearchResponse | undefined;
+  public response: ISearchResponse<Item> | undefined;
   public $sortingStatus = this.sortingService.$sorting;
   public $filter = this.filteringService.$filtering;
   public $subject = new Subject();

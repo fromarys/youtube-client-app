@@ -1,13 +1,13 @@
-import { Item } from './search-item.model';
+import { Item, IItem } from './search-item.model';
 
 export interface IPageInfo {
   totalResults: number,
   resultsPerPage: number
 }
 
-export interface ISearchResponse {
+export interface ISearchResponse<T> {
   kind: string,
   etag: string,
   pageInfo: IPageInfo,
-  items: Array<Item>
+  items: Array<T>
 }
