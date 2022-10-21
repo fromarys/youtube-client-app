@@ -53,19 +53,16 @@
     cursor: pointer;
   }
 
-  &__logout {
-    position: absolute;
-    list-style-type: none;
-    top: 1rem;
-    left: 0;
-    padding: 0;
+  &__button {
     background-color: var(--main-color);
     width: 100%;
     max-width: 10rem;
     text-align: center;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
     cursor: pointer;
-    @include font($normal, $font-20, var(--white-color));
+    outline: none;
+    border: none;
+    @include font($normal, $font-14, var(--white-color));
 
     &:hover {
       opacity: 0.8;

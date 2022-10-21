@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public filterIsShown: boolean = false;
   public logOutIsShown: boolean = false;
   public userName: IUserData | string = 'Your Name';
-  constructor(private loginService: LoginService) {}
+  constructor(protected loginService: LoginService) {}
 
   ngOnInit(): void {
     const userData: string | null = localStorage.getItem(LocalStorage.auth);
@@ -32,14 +32,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.loginService.$authData.unsubscribe();
   }
 
-  public showLogOutMenu() {
-    if (this.loginService.isAuthorized()) {
-      this.logOutIsShown = !this.logOutIsShown;
-    }
-  }
-
   public logOut(): void {
-    this.showLogOutMenu();
     this.loginService.logOut();
   }
 }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_URL: 'https://www.googleapis.com/youtube/v3',
-  API_KEY: 'AIzaSyBY00HnPVOj1zTw9f-vsGdy4l59lhIewIA',
+  API_KEY: 'AIzaSyCe6bJ9QcaWvMUrw6ptgtrFN2rMO97DaU0',
   SEARCH_URL: 'search',
   SEARCH_PART: 'snippet',
   SEARCH_TYPE: 'video',

@@ -7,10 +7,9 @@
         <button mat-button aria-label="filter" class="header__button" (click)="switchFilterState()"></button>
         <div class="user">
           <span class="user__name">{{userName}}</span>
-          <button class="user__image" (click)="showLogOutMenu()"></button>
-          <ul class="user__logout" *ngIf="logOutIsShown">
-            <li (click)="logOut()">LogOut</li>
-          </ul>
+          <button class="user__image"></button>
+          <a [routerLink]="['/auth']"><button class="user__button" *ngIf="!this.loginService.isAuthorized()">LogIn</button></a>
+          <button class="user__button" *ngIf="this.loginService.isAuthorized()" (click)="logOut()">LogOut</button>
         </div>
       </div>
       <ng-container *ngIf="filterIsShown">

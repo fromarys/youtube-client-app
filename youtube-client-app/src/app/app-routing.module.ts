@@ -9,6 +9,7 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+    canLoad: [AuthGuard],
   },
   {
     path: 'auth',

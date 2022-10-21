@@ -30,7 +30,7 @@ export class YoutubeService {
           const id = res.items.map((item) => item.id.videoId);
           return this.sendVideosRequest(id.join(','));
         })
-      )
+      );
   }
 
   sendVideosRequest(id: string): Observable<ISearchResponse<Item>> {
