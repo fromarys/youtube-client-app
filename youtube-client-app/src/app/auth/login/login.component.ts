@@ -7,7 +7,9 @@ import {
 } from '@angular/forms';
 import { IUserCredentials } from 'src/app/core/models/user.model';
 import { LoginService } from 'src/app/core/services/login/login.service';
-import { Login } from 'src/app/shared/enums/enums';
+import {
+  Login, ErrorTypes, EmailErrors, PasswordErrors, PasswordCheck,
+} from 'src/app/shared/enums/enums';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
   };
   protected user: FormGroup = this.form.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.pattern(PasswordCheck.pattern)]],
   });
   constructor(private loginService: LoginService, private form: FormBuilder) { }
 
@@ -39,14 +41,17 @@ export class LoginComponent implements OnInit {
   }
 
   getEmailErrorMessage() {
-    if (this.email?.hasError('required')) {
-      return 'You must enter a value';
+    if (this.email?.hasError(ErrorTypes.required)) {
+      return EmailErrors.required;
     }
-    return this.email?.hasError('email') ? 'Not a valid email' : '';
+    return this.email?.hasError(ErrorTypes.email) ? EmailErrors.invalid : '';
   }
 
   getPasswordErrorMessage() {
-    return 'You must enter a password';
+    if (this.password?.hasError(ErrorTypes.required)) {
+      return PasswordErrors.required;
+    }
+    return this.password?.hasError(ErrorTypes.pattern) ? PasswordErrors.invalid : '';
   }
 
   logIn() {
