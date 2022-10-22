@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { RouterModule } from '@angular/router';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatSortModule,
     ReactiveFormsModule,
+    MatNativeDateModule,
     RouterModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
 })
 export class SharedModule { }

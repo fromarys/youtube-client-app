@@ -13,16 +13,24 @@
         <mat-error *ngIf="description?.invalid">{{getDescrErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="video__image">
-        <mat-label>Img</mat-label>
+        <mat-label>Link to image</mat-label>
         <input matInput placeholder="Insert link to image"formControlName="imageLink" name="imageLink" required>
         <mat-error *ngIf="imageLink?.invalid">{{getImageLinkErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="video__link">
-        <mat-label>Link video</mat-label>
-        <input matInput placeholder="Insert link to video"formControlName="videoLink" name="videoLink" required>
+        <mat-label>Link to video</mat-label>
+        <input matInput placeholder="Insert link to video" formControlName="videoLink" name="videoLink" required>
         <mat-error *ngIf="videoLink?.invalid">{{getVideoLinkErrorMessage()}}</mat-error>
       </mat-form-field>
-      <button type="submit" mat-button class="login__button">Create card</button>
+      <mat-form-field appearance="fill" class="video__date">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" name="date" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="date?.invalid">{{getDateErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-button class="card__button">Create card</button>
     </form>
   </div>
 </div>

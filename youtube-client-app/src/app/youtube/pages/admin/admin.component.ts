@@ -4,7 +4,7 @@ import {
 } from '@angular/forms';
 import { ErrorTypes } from 'src/app/shared/enums/enums';
 import { regExps } from 'src/app/shared/constants/constants';
-
+import { DateValidator } from '../../validators/date.validator';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -16,6 +16,7 @@ export class AdminComponent implements OnInit {
     description: ['', [Validators.maxLength(255)]],
     imageLink: ['', [Validators.required, Validators.pattern(regExps.url)]],
     videoLink: ['', [Validators.required, Validators.pattern(regExps.url)]],
+    date: ['', [Validators.required, DateValidator.check]],
   });
 
   constructor(private form: FormBuilder) { }
@@ -32,13 +33,14 @@ export class AdminComponent implements OnInit {
   get videoLink(): AbstractControl<string | null> | null {
     return this.video.get('videoLink');
   }
+  get date() {
+    return this.video.get('date');
+  }
 
   ngOnInit(): void {
   }
 
-  createCard() {
-
-  }
+  createCard() {}
 
   getTitleErrorMessage() {
     if (this.title?.hasError('minlength')) {
@@ -66,5 +68,12 @@ export class AdminComponent implements OnInit {
       return 'Please enter a link to the video';
     }
     return this.videoLink?.hasError(ErrorTypes.pattern) ? 'The video link is invalid' : '';
+  }
+
+  getDateErrorMessage() {
+    if (this.date?.hasError(ErrorTypes.required)) {
+      return 'Please enter a creation date';
+    }
+    return 'The date is invalid';
   }
 }
