@@ -5,6 +5,7 @@ import {
 import { ErrorTypes } from 'src/app/shared/enums/enums';
 import { regExps } from 'src/app/shared/constants/constants';
 import { DateValidator } from '../../validators/date.validator';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -19,7 +20,7 @@ export class AdminComponent implements OnInit {
     date: ['', [Validators.required, DateValidator.check]],
   });
 
-  constructor(private form: FormBuilder) { }
+  constructor(private form: FormBuilder) {}
 
   get title(): AbstractControl<string | null> | null {
     return this.video.get('title');
