@@ -1,5 +1,3 @@
-import { Item, IItem } from './search-item.model';
-
 export interface IPageInfo {
   totalResults: number,
   resultsPerPage: number

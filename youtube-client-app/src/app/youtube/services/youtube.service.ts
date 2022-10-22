@@ -16,20 +16,20 @@ export class YoutubeService {
 
   getSearchResult(query: string): Observable<ISearchResponse<Item>> {
     const params: Params = new HttpParams()
-    .set('type', environment.SEARCH_TYPE)
-    .set('part', environment.SEARCH_PART)
-    .set('maxResults', environment.MAX_RESULTS)
-    .set('q', query);
+      .set('type', environment.SEARCH_TYPE)
+      .set('part', environment.SEARCH_PART)
+      .set('maxResults', environment.MAX_RESULTS)
+      .set('q', query);
     return this.sendSearchRequest(params);
   }
 
   sendSearchRequest(params: Params) {
     return this.httpClient.get<ISearchResponse<IItem>>(`${environment.API_URL}/${environment.SEARCH_URL}`, { params })
       .pipe(
-        switchMap(res => {
+        switchMap((res) => {
           const id = res.items.map((item) => item.id.videoId);
           return this.sendVideosRequest(id.join(','));
-        })
+        }),
       );
   }
 

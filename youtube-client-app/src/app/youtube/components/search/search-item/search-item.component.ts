@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IId, IItem, Item } from 'src/app/youtube/models/search-item.model';
+import { Item } from 'src/app/youtube/models/search-item.model';
 
 @Component({
   selector: 'app-search-item',
@@ -12,7 +12,7 @@ export class SearchItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   mockDislikes(likes: string | undefined): number {
     return Math.floor((Number(likes) * 5) / 100);
   }
