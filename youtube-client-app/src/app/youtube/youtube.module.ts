@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BorderColorDirective } from './directives/border-color.directive';
 import { DetailsComponent } from './pages/details/details.component';
 import { LinkifyPipe } from './pipes/linkify.pipe';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LinkifyPipe } from './pipes/linkify.pipe';
     BorderColorDirective,
     DetailsComponent,
     LinkifyPipe,
+    AdminComponent,
   ],
   imports: [
     SharedModule,

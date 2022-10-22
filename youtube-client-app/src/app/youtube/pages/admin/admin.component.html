@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card">
+    <h2 class="card__title">Create new card</h2>
+    <form action="" [formGroup]="video" (ngSubmit)="video.valid && createCard()" class="video">
+      <mat-form-field appearance="fill" class="video__title">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Enter title"formControlName="title" name="title" required>
+        <mat-error *ngIf="title?.invalid">{{getTitleErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="video__description">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Enter description"formControlName="description" name="description">
+        <mat-error *ngIf="description?.invalid">{{getDescrErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="video__image">
+        <mat-label>Img</mat-label>
+        <input matInput placeholder="Insert link to image"formControlName="imageLink" name="imageLink" required>
+        <mat-error *ngIf="imageLink?.invalid">{{getImageLinkErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="video__link">
+        <mat-label>Link video</mat-label>
+        <input matInput placeholder="Insert link to video"formControlName="videoLink" name="videoLink" required>
+        <mat-error *ngIf="videoLink?.invalid">{{getVideoLinkErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-button class="login__button">Create card</button>
+    </form>
+  </div>
+</div>

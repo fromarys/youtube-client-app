@@ -8,8 +8,9 @@ import {
 import { IUserCredentials } from 'src/app/core/models/user.model';
 import { LoginService } from 'src/app/core/services/login/login.service';
 import {
-  Login, ErrorTypes, EmailErrors, PasswordErrors, PasswordCheck,
+  Login, ErrorTypes, EmailErrors, PasswordErrors,
 } from 'src/app/shared/enums/enums';
+import { regExps } from 'src/app/shared/constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
   };
   protected user: FormGroup = this.form.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.pattern(PasswordCheck.pattern)]],
+    password: ['', [Validators.required, Validators.pattern(regExps.password)]],
   });
   constructor(private loginService: LoginService, private form: FormBuilder) { }
 

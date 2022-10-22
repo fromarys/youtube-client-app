@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 export enum LocalStorage {
   auth = 'authorized',
 }
@@ -30,8 +31,4 @@ at least 8 characters,
 a mixture of both uppercase and lowercase letters,
 a mixture of letters and numbers,
 inclusion of at least one special character, e.g., ! @ # ? ]`,
-}
-
-export enum PasswordCheck {
-  pattern = '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$#!%*?&\\[\\]])[A-Za-z\\d$@#$!%*?&\\[\\]].{8,}',
 }
