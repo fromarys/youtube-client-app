@@ -11,7 +11,7 @@
     </div>
     <div class="item__dislikes">
       <mat-icon>thumb_down</mat-icon>
-      <span>{{item?.statistics?.dislikeCount}}</span>
+      <span>{{item?.statistics?.dislikeCount ? item?.statistics?.dislikeCount : mockDislikes(item?.statistics?.likeCount)}}</span>
     </div>
     <div class="item__favorites">
       <mat-icon>collections_bookmark</mat-icon>

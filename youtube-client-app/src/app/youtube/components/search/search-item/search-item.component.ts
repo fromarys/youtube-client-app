@@ -12,4 +12,8 @@ export class SearchItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  mockDislikes(likes: string | undefined): number {
+    return Math.floor((Number(likes) * 5) / 100);
+  }
 }
