@@ -29,7 +29,10 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
       pluck(SearchParam.query),
-      switchMap((query) => this.youtubeService.getSearchResult(query)),
+      switchMap((query) => {
+        console.log(query);
+        return this.youtubeService.getSearchResult(query);
+      }),
     )
       .subscribe((response) => {
         this.response = response;

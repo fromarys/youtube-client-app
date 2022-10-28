@@ -4,7 +4,7 @@ import {
 import { Router } from '@angular/router';
 import {
   catchError,
-  debounceTime, distinctUntilChanged, filter, of, Subject,
+  debounceTime, distinctUntilChanged, filter, of, Subject, switchMap,
 } from 'rxjs';
 import { DEBOUNCE_DELAY, MIN_SEARCH_LENGTH } from 'src/app/shared/constants/constants';
 

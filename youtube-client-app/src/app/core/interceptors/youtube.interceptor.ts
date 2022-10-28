@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/app/shared/enviromnents/environment';
 
 @Injectable()
 export class YoutubeInterceptor implements HttpInterceptor {
