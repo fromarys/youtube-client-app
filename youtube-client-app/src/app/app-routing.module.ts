@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     canLoad: [AuthGuard],
   },
+  {
+    path: 'search',
+    loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
+    canLoad: [AuthGuard],
+  },
   { path: 'admin', component: AdminComponent, canLoad: [AuthGuard] },
   { path: 'item/:id', component: DetailsComponent },
   { path: '404', component: NotFoundComponent },

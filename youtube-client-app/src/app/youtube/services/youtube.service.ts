@@ -4,7 +4,7 @@ import { Observable, Subject, switchMap } from 'rxjs';
 import { ISearchResponse } from 'src/app/youtube/models/search-response.model';
 import { environment } from 'src/app/shared/enviromnents/environment';
 import { Params } from '@angular/router';
-import { IItem, Item } from '../models/search-item.model';
+import { Item } from '../models/search-item.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class YoutubeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSearchResult(query: string): Observable<ISearchResponse<Item>> {
+  getSearchResult(query: string): Observable<ISearchResponse> {
     const params: Params = new HttpParams()
       .set('type', environment.SEARCH_TYPE)
       .set('part', environment.SEARCH_PART)
@@ -24,19 +24,24 @@ export class YoutubeService {
   }
 
   sendSearchRequest(params: Params) {
-    return this.httpClient.get<ISearchResponse<IItem>>(`${environment.API_URL}/${environment.SEARCH_URL}`, { params })
+    return this.httpClient.get<ISearchResponse>(`${environment.API_URL}/${environment.SEARCH_URL}`, { params })
       .pipe(
         switchMap((res) => {
-          const id = res.items.map((item) => item.id.videoId);
+          const id = res.items.map((item) => {
+            if ( typeof item.id === 'object') {
+              return item.id.videoId;
+            }
+            return item.id;
+          });
           return this.sendVideosRequest(id.join(','));
         }),
       );
   }
 
-  sendVideosRequest(id: string): Observable<ISearchResponse<Item>> {
+  sendVideosRequest(id: string): Observable<ISearchResponse> {
     const params: Params = new HttpParams()
       .set('id', id)
       .set('part', environment.VIDEOS_PART);
-    return this.httpClient.get<ISearchResponse<Item>>(`${environment.API_URL}/${environment.VIDEOS_URL}`, { params });
+    return this.httpClient.get<ISearchResponse>(`${environment.API_URL}/${environment.VIDEOS_URL}`, { params });
   }
 }

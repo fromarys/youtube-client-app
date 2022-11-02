@@ -5,6 +5,10 @@ import {
 import { ErrorTypes } from 'src/app/shared/enums/enums';
 import { regExps } from 'src/app/shared/constants/constants';
 import { DateValidator } from '../../validators/date.validator';
+import { ICustomItem } from '../../models/custom-item.model';
+import { Store } from '@ngrx/store';
+import * as ItemActions from '../../../redux/actions/items.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -20,7 +24,7 @@ export class AdminComponent implements OnInit {
     date: ['', [Validators.required, DateValidator.check]],
   });
 
-  constructor(private form: FormBuilder) {}
+  constructor(private form: FormBuilder, private store: Store, private router: Router) {}
 
   get title(): AbstractControl<string | null> | null {
     return this.video.get('title');
@@ -40,8 +44,6 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  createCard() {}
 
   getTitleErrorMessage() {
     if (this.title?.hasError('minlength')) {
@@ -76,5 +78,18 @@ export class AdminComponent implements OnInit {
       return 'Please enter a creation date';
     }
     return 'The date is invalid';
+  }
+
+  createCard() {
+    const item: ICustomItem = { ...this.video.value };
+    if (Object.keys(item).length !== 0) {
+      item.id = Math.random().toString(36).slice(2, 6);
+      this.store.dispatch(ItemActions.addCustomItem({ item }));
+      this.router.navigateByUrl('search');
+    } else {
+      this.store.dispatch(
+        ItemActions.addCustomItemError({ error: new Error('Error in card creation') }),
+      );
+    }
   }
 }

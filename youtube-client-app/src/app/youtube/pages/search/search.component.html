@@ -1,7 +1,8 @@
 <div class="container">
   <main class="results">
-    <ng-container *ngIf="response">
-      <app-search-item *ngFor="let item of response.items | sorting: ($sortingStatus | async) | filtering : ($filter | async)" [item]="item"></app-search-item>
+    <app-custom-item *ngFor="let item of customResults$ | async" [item]="item"></app-custom-item>
+    <ng-container *ngIf="items">
+      <app-search-item *ngFor="let item of items | sorting: ($sortingStatus | async) | filtering : ($filter | async)" [item]="item"></app-search-item>
     </ng-container>
   </main>
 </div>

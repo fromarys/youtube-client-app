@@ -40,7 +40,7 @@ export interface IStatistics {
   commentCount: string;
 }
 
-export interface IId {
+export interface Id {
   kind: string,
   videoId: string,
 }
@@ -48,15 +48,8 @@ export interface IId {
 export interface Item {
   kind: string;
   etag: string;
-  id: string;
+  id: Id | string;
   snippet: Snippet;
   statistics: IStatistics;
 }
 
-export interface IItem {
-  kind: string;
-  etag: string;
-  id: IId;
-  snippet: Snippet;
-  statistics: IStatistics;
-}

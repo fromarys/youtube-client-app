@@ -72,5 +72,26 @@
       padding: 1rem
     }
   }
+
+  .submenu {
+    position: absolute;
+    top: 3.5rem;
+    background: var(--main-color);
+    padding: 0.5rem;
+    z-index: 1000;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    button {
+      cursor: pointer;
+      border-radius: 0.3rem;
+      border: none;
+      outline: none;
+      width: 100%;
+      max-width: 10rem;
+    }
+  }
 }
 

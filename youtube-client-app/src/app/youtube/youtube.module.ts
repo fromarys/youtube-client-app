@@ -9,10 +9,12 @@ import { BorderColorDirective } from './directives/border-color.directive';
 import { DetailsComponent } from './pages/details/details.component';
 import { LinkifyPipe } from './pipes/linkify.pipe';
 import { AdminComponent } from './pages/admin/admin.component';
+import { CustomItemComponent } from './components/search/custom-item/custom-item.component';
 
 @NgModule({
   declarations: [
     SearchItemComponent,
+    CustomItemComponent,
     SearchComponent,
     SortingPipe,
     FilteringPipe,

@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public filterIsShown: boolean = false;
   public logOutIsShown: boolean = false;
   public userName: IUserData | string = 'Your Name';
+  protected menuIsOpen: boolean = false;
   constructor(protected loginService: LoginService) {}
 
   ngOnInit(): void {
@@ -34,5 +35,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public logOut(): void {
     this.loginService.logOut();
+  }
+
+  public openMenu() {
+    this.menuIsOpen = !this.menuIsOpen;
   }
 }
