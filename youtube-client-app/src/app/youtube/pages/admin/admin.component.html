@@ -2,7 +2,7 @@
   <div class="card">
     <h2 class="card__title">Create new card</h2>
     <form action="" [formGroup]="video" (ngSubmit)="video.valid && createCard()" class="video">
-      <mat-form-field appearance="fill" class="video__title" [ngStyle]="{'border-bottom':title?.valid ? '1px solid red' : 'none' }">
+      <mat-form-field appearance="fill" class="video__title" [ngStyle]="{'border-bottom':title?.invalid ? '1px solid red' : 'none' }">
         <mat-label>Title</mat-label>
         <input matInput placeholder="Enter title"formControlName="title" name="title" required>
         <mat-error *ngIf="title?.invalid">{{getTitleErrorMessage()}}</mat-error>
@@ -12,17 +12,17 @@
         <input matInput placeholder="Enter description"formControlName="description" name="description">
         <mat-error *ngIf="description?.invalid">{{getDescrErrorMessage()}}</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="video__image" [ngStyle]="{'border-bottom':imageLink?.valid ? '1px solid red' : 'none' }">
+      <mat-form-field appearance="fill" class="video__image" [ngStyle]="{'border-bottom':imageLink?.invalid ? '1px solid red' : 'none' }">
         <mat-label>Link to image</mat-label>
         <input matInput placeholder="Insert link to image"formControlName="imageLink" name="imageLink" required>
         <mat-error *ngIf="imageLink?.invalid">{{getImageLinkErrorMessage()}}</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="video__link" [ngStyle]="{'border-bottom':videoLink?.valid ? '1px solid red' : 'none' }">
+      <mat-form-field appearance="fill" class="video__link" [ngStyle]="{'border-bottom':videoLink?.invalid ? '1px solid red' : 'none' }">
         <mat-label>Link to video</mat-label>
         <input matInput placeholder="Insert link to video" formControlName="videoLink" name="videoLink" required>
         <mat-error *ngIf="videoLink?.invalid">{{getVideoLinkErrorMessage()}}</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill" class="video__date" [ngStyle]="{'border-bottom':date?.valid ? '1px solid red' : 'none' }">
+      <mat-form-field appearance="fill" class="video__date" [ngStyle]="{'border-bottom':date?.invalid ? '1px solid red' : 'none' }">
         <mat-label>Date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="date" name="date" required>
         <mat-hint>MM/DD/YYYY</mat-hint>
