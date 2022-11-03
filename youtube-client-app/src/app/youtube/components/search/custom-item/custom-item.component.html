@@ -1,5 +1,7 @@
 <div class="item" appBorderColor [date]="item?.date">
-  <img [src]="item?.image" alt="" class="item__image" width="224" height="126">
+  <img [src]="item?.imageLink" alt="" class="item__image" width="224" height="126">
   <div class="item__title">{{item?.title}}</div>
-  <a [routerLink]="['/item', item?.id]"><button mat-button class="item__button">more...</button></a>
+  <div>{{item?.description}}</div>
+  <div>Creation date: {{item?.date | date: 'longDate'}}</div>
+  <a [href]="item?.videoLink">Link to video</a>
 </div>

@@ -12,5 +12,6 @@ export class CustomItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    console.log(this.item);
   }
 }
